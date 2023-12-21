@@ -10,7 +10,7 @@ class ICityRepository(ABC):
         pass
 
     @abstractmethod
-    def get_cities(self, city_name) -> list[CityEntity]:
+    def get_cities_by_name(self, city_name) -> list[CityEntity]:
         pass
 
     @abstractmethod

@@ -5,7 +5,7 @@ from persistence.i_city_repository import ICityRepository
 class CityRepositoryImpl(ICityRepository):
 
     # Get list of cities
-    def get_cities(self, city_name) -> list[CityEntity]:
+    def get_cities_by_name(self, city_name) -> list[CityEntity]:
         return list(filter(lambda city: city.get_name == city_name, self._cities))
 
     # Constructor for the repository

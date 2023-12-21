@@ -22,15 +22,22 @@ class AddressServiceImpl(IAddressService):
         self._city_repository: ICityRepository = CityRepositoryImpl()
         self._streets_repository: IStreetRepository = StreetRepositoryImpl()
 
+    '''
+    Service to get addresses by city name
+    if city not found, throw an exception with bad request status
+    if more than one city found, throw an exception with bad request status
+    if only one city found, return list of street names
+
+    '''
     def get_address_by_city(self, request: GetAddressByCityRequest) -> GetAddressByCityResponse:
 
         if self._city_repository.is_empty():
             self.__read_datasets()
 
-        cities: list[CityEntity] = self._city_repository.get_cities(request.city_name)
+        cities: list[CityEntity] = self._city_repository.get_cities_by_name(request.city_name)
 
         if len(cities) < 1:
-            raise CustomException("City Not Found", 400)
+            raise CustomException("CITY NOT FOUND!", 400)
 
         if len(cities) > 1:
             raise CustomException("MORE THAN ONE CITY IS FOUND!", 400)
