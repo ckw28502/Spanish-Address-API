@@ -3,6 +3,8 @@ from flask import Flask, jsonify, Response
 from business.dto.exception.custom_exception import CustomException
 from controller.address_controller import AddressController
 
+import geopandas as gpd
+
 app = Flask(__name__)
 
 addressController: AddressController = AddressController()
@@ -15,10 +17,15 @@ def get_addresses_by_city(city_name: str):
 
 @app.errorhandler(CustomException)
 def custom_exception(error: CustomException):
-    status: str= "BAD_REQUEST" if error.status_code == 400 else "INTERNAL_SERVER_ERROR"
+    status: str = "BAD_REQUEST" if error.status_code == 400 else "INTERNAL_SERVER_ERROR"
     response: Response = jsonify({"status": status,"code": error.status_code, "message": str(error)})
     response.status_code = error.status_code
     return response
+
+
+@app.route("/")
+def read_shp():
+    gpd.read_file("")
 
 
 if __name__ == '__main__':
