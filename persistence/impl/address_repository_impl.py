@@ -4,6 +4,9 @@ from persistence.i_address_repository import IAddressRepository
 
 class AddressRepositoryImpl(IAddressRepository):
 
+    def is_more_than_one_city_found(self, city_name) -> bool:
+        return len(list(filter(lambda address: address.get_city_name == city_name, self._addresses)))>1
+
     # Constructor for the repository
     def __init__(self):
         self._addresses = []

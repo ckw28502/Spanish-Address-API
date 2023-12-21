@@ -10,6 +10,10 @@ class IAddressRepository(ABC):
         pass
 
     @abstractmethod
+    def is_more_than_one_city_found(self, city_name) -> bool:
+        pass
+
+    @abstractmethod
     def add_addresses(self, addresses: list[AddressEntity]) -> None:
         pass
 
