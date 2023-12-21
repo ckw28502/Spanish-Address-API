@@ -1,32 +1,53 @@
+from pandas import DataFrame
+
 from business.dto.exception.custom_exception import CustomException
 from business.dto.request.get_address_by_city_request import GetAddressByCityRequest
 from business.dto.response.get_address_by_city_response import GetAddressByCityResponse
 from business.i_address_service import IAddressService
-from persistence.entities.address_entity import AddressEntity
-from persistence.i_address_repository import IAddressRepository
-from persistence.impl.address_repository_impl import AddressRepositoryImpl
+from persistence.entities.city_entity import CityEntity
+from persistence.entities.street_entity import StreetEntity
+from persistence.i_city_repository import ICityRepository
+from persistence.i_street_repository import IStreetRepository
+from persistence.impl.city_repository_impl import CityRepositoryImpl
+from persistence.impl.street_repository_impl import StreetRepositoryImpl
+
+import pandas as pd
 
 
 class AddressServiceImpl(IAddressService):
 
     # Constructor
     def __init__(self):
-        self._address_repository: IAddressRepository = AddressRepositoryImpl()
+        self._city_repository: ICityRepository = CityRepositoryImpl()
+        self._streets_repository: IStreetRepository = StreetRepositoryImpl()
 
     def get_address_by_city(self, request: GetAddressByCityRequest) -> GetAddressByCityResponse:
 
-        if self._address_repository.is_empty():
-            self.__read_shape_file()
+        if self._city_repository.is_empty():
+            self.__read_datasets()
 
-        if self._address_repository.is_more_than_one_city_found(request.city_name):
-            raise CustomException("MORE THAN ONE CITY IS FOUND!",400)
+        cities: list[CityEntity] = self._city_repository.get_cities(request.city_name)
 
-        addresses: list[AddressEntity] = self._address_repository.get_addresses_by_city(request.get_city_name)
-        street_names: list[str] = list(address.get_street_name for address in addresses)
+        if len(cities) < 1  :
+            raise CustomException("City Not Found",400)
+
+        if len(cities) > 1:
+            raise CustomException("MORE THAN ONE CITY IS FOUND!", 400)
+
+        streets: list[StreetEntity] = self._streets_repository.get_streets_by_city(cities[0])
+        street_names: list[str] = list(street.get_name for street in streets)
         response: GetAddressByCityResponse = GetAddressByCityResponse(street_names=street_names)
         return response
 
     # Read the shape file
     # TODO
-    def __read_shape_file(self):
-        self._address_repository.add_addresses([AddressEntity("Surabaya","Lontar"),AddressEntity("Surabaya","Gubeng")])
+    def __read_datasets(self):
+        df: DataFrame = pd.read_json("dataset/cities.json", orient="records")
+        df['name'] = df["elements"].apply(lambda x: x['tags']['name'])
+        df = df.drop(columns=['elements'], axis=1)
+
+        cities: list[CityEntity] = []
+        for index, row in df.iterrows():
+            cities.append(CityEntity(id=int(str(index)), name=row["name"]))
+
+        self._city_repository.add_cities(cities)
