@@ -11,7 +11,6 @@ class CityRepositoryImpl(ICityRepository):
     # Constructor for the repository
     def __init__(self):
         self._cities = []
-        self._id_counter = 1
 
     # Checks whether list is empty or not
     def is_empty(self) -> bool:

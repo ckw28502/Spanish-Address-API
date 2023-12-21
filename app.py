@@ -3,6 +3,7 @@ from flask import Flask, jsonify, Response
 from business.dto.exception.custom_exception import CustomException
 from controller.address_controller import AddressController
 
+
 app = Flask(__name__)
 
 addressController: AddressController = AddressController()
@@ -23,7 +24,10 @@ def custom_exception(error: CustomException):
 
 @app.route("/")
 def read_shp():
-    pass
+    df = pd.read_json("dataset/cities.json", orient="records")
+    df["name"] = df["features"].apply(lambda x: x['properties']['name'])
+    df = df.drop(columns=['features'], axis=1)
+    return df.to_html()
 
 
 
