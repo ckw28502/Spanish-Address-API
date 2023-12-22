@@ -62,7 +62,7 @@ class TestAddressServiceImpl(unittest.TestCase):
 
     @patch('persistence.impl.city_repository_impl.CityRepositoryImpl.get_cities_by_name')
     @patch('persistence.impl.city_repository_impl.CityRepositoryImpl.is_empty', return_value=False)
-    def test_get_address_by_city_multiple_cities(self, mock_is_empty, mock_get_cities):
+    def test_get_address_by_city_no_cities(self, mock_is_empty, mock_get_cities):
         # Arrange
         address_service = AddressServiceImpl()
 

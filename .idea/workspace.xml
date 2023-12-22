@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7ef22cc-3f12-4f4f-80a2-e91409154a19" name="Changes" comment="feat : unit tests implemented">
+    <list default="true" id="b7ef22cc-3f12-4f4f-80a2-e91409154a19" name="Changes" comment="fix : cleaning the code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business/impl/address_service_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/business/impl/address_service_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/business/impl/address_service_impl_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/business/impl/address_service_impl_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,28 +41,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Flask server.D-Centralize Test.executor": "Run",
-    "Flask server.Flask (app.py).executor": "Run",
-    "HTTP Request.All in generated-requests.executor": "Run",
-    "HTTP Request.generated-requests | #1.executor": "Run",
-    "Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl.executor": "Run",
-    "Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl.test_get_address_by_city_multiple_cities.executor": "Run",
-    "Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl.test_get_address_by_city_one_city_no_streets.executor": "Run",
-    "Python.address_controller.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "D:/D-Centralize Test/D-Centralize Test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Flask server.D-Centralize Test.executor&quot;: &quot;Run&quot;,
+    &quot;Flask server.Flask (app.py).executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl.test_get_address_by_city_multiple_cities.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl.test_get_address_by_city_one_city_no_streets.executor&quot;: &quot;Run&quot;,
+    &quot;Python.address_controller.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/D-Centralize Test/D-Centralize Test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\D-Centralize Test\D-Centralize Test" />
@@ -75,7 +75,7 @@
       <recent name="D:\D-Centralize Test\D-Centralize Test\Persistence\entities" />
     </key>
   </component>
-  <component name="RunManager" selected="Flask server.D-Centralize Test">
+  <component name="RunManager" selected="Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl">
     <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
       <method v="2" />
     </configuration>
@@ -148,9 +148,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl" />
         <item itemvalue="Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl.test_get_address_by_city_multiple_cities" />
         <item itemvalue="Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl.test_get_address_by_city_one_city_no_streets" />
-        <item itemvalue="Python tests.Python tests for address_service_impl_test.TestAddressServiceImpl" />
         <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="HTTP Request.All in generated-requests" />
       </list>
@@ -172,6 +172,8 @@
       <option name="presentableId" value="Default" />
       <updated>1703150318993</updated>
       <workItem from="1703150325349" duration="5532000" />
+      <workItem from="1703224613458" duration="406000" />
+      <workItem from="1703262923527" duration="1067000" />
     </task>
     <task id="LOCAL-00001" summary="feat : api call for street names implemented">
       <option name="closed" value="true" />
@@ -221,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703194573505</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix : cleaning the code">
+      <option name="closed" value="true" />
+      <created>1703224903512</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703224903512</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,22 +256,12 @@
     <MESSAGE value="feat : read cities dataset feature implemented" />
     <MESSAGE value="feat : read streets from json files implemented" />
     <MESSAGE value="feat : unit tests implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : unit tests implemented" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/persistence/i_city_repository.py</url>
-          <line>9</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fix : cleaning the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix : cleaning the code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/D_Centralize_Test$address_controller.coverage" NAME="address_controller Coverage Results" MODIFIED="1703159114923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/controller" />
-    <SUITE FILE_PATH="coverage/D_Centralize_Test$.coverage" NAME=" Coverage Results" MODIFIED="1703194549260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/business/impl" />
+    <SUITE FILE_PATH="coverage/D_Centralize_Test$.coverage" NAME=" Coverage Results" MODIFIED="1703263746913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/business/impl" />
     <SUITE FILE_PATH="coverage/D_Centralize_Test$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1703159118801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/D_Centralize_Test$app.coverage" NAME="app Coverage Results" MODIFIED="1703158941772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/D_Centralize_Test$D_Centralize_Test.coverage" NAME="D-Centralize Test Coverage Results" MODIFIED="1703194776961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
