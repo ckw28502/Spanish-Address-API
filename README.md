@@ -40,5 +40,5 @@ pip install pytest
 To run the unit tests, run the following command
 
 ```
-pytest
+python -m pytest
 ```
