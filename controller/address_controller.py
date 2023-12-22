@@ -8,9 +8,11 @@ from business.dto.request.get_address_by_city_request import GetAddressByCityReq
 
 class AddressController:
 
+    # Constructor
     def __init__(self):
         self.address_service: IAddressService = AddressServiceImpl()
 
+    # method to convert city name into request dto and response dto into json
     def get_address_by_city(self, city_name: str) -> str:
         request: GetAddressByCityRequest = GetAddressByCityRequest(city_name=city_name)
         response: GetAddressByCityResponse = self.address_service.get_address_by_city(request)

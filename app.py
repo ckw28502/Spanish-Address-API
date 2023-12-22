@@ -22,14 +22,5 @@ def custom_exception(error: CustomException):
     return response
 
 
-@app.route("/")
-def read_shp():
-    df = pd.read_json("dataset/cities.json", orient="records")
-    df["name"] = df["features"].apply(lambda x: x['properties']['name'])
-    df = df.drop(columns=['features'], axis=1)
-    return df.to_html()
-
-
-
 if __name__ == '__main__':
     app.run()
