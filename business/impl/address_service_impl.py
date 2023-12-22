@@ -24,9 +24,10 @@ class AddressServiceImpl(IAddressService):
 
     '''
     Service to get addresses by city name
-    if city not found, throw an exception with bad request status
-    if more than one city found, throw an exception with bad request status
-    if only one city found, return list of street names
+    
+    * if city not found, throw an exception with bad request status
+    * if more than one city found, throw an exception with bad request status
+    * if only one city found, return list of street names
 
     '''
     def get_address_by_city(self, request: GetAddressByCityRequest) -> GetAddressByCityResponse:
@@ -48,7 +49,6 @@ class AddressServiceImpl(IAddressService):
         return response
 
     # Read datasets
-    # TODO
     def __read_datasets(self):
         df: DataFrame = pd.read_json("dataset/cities.json", orient="records")
         df['name'] = df["elements"].apply(lambda x: x['tags']['name'])
