@@ -5,12 +5,6 @@
 After cloning the program, run following command to run the development server
 
 ```bash
-flask run
-```
-
-or
-
-```bash
 python -m flask run
 ```
 
@@ -36,6 +30,13 @@ http://127.0.0.1:5000/Madrid
 - Ceuta
 
 ## Test
+
+If you have not install pytest, run this command
+
+```
+pip install pytest
+```
+
 To run the unit tests, run the following command
 
 ```
