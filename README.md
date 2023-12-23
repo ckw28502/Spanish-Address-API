@@ -1,5 +1,15 @@
 # Spanish Address API
 
+## Prequisite
+- Python 3
+
+## Instalation
+Run this following commands
+```bash
+pip install flask
+pip install pandas
+```
+
 ## Run the Development Server
 
 After cloning the program, run following command to run the development server
