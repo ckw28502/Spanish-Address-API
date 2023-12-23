@@ -6,8 +6,7 @@
 ## Instalation
 Run this following commands
 ```bash
-pip install flask
-pip install pandas
+pip install flask pandas
 ```
 
 ## Run the Development Server
