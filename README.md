@@ -23,14 +23,12 @@ Use this URL below in your browser to query streets
 
 ```
 http://127.0.0.1:5000/<city_name>
-
 ```
 
 example 
 
 ```
 http://127.0.0.1:5000/Madrid
-
 ```
 
 ### Available Cities
